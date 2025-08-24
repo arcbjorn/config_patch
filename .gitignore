@@ -1,0 +1,12 @@
+# Ignore everything
+*
+
+!README*
+!readme*
+
+!.gitignore
+
+!hypr/
+!hypr/**
+!waybar/
+!waybar/**
