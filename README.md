@@ -1,6 +1,16 @@
 # Omarchy config
 
-Additional Web apps:
+## Merge with fresh install
+```bash
+git init
+git add .
+git commit -m "fresh install base"
+git remote add origin <your-custom-config-repo>
+git fetch origin master
+git merge origin/master --allow-unrelated-histories
+```
+
+## Additional Web apps:
 
 ```
 Google Calendar
