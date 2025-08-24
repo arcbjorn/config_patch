@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//home/arc/.local/share/omarchy/default/hypr/bindings/**)",
+      "Bash(swayosd-client:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
