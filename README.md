@@ -30,8 +30,7 @@ omarchy-webapp-install Gemini https://gemini.google.com/ https://cdn.jsdelivr.ne
 ```
 
 ```
-omarchy-webapp-install Grok https://grok.com
-https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/grok-dark.png
+omarchy-webapp-install Grok https://grok.com https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/grok-dark.png
 ```
 
 ```
@@ -39,5 +38,5 @@ omarchy-webapp-install Claude https://claude.ai https://cdn.jsdelivr.net/gh/homa
 ```
 
 ```
-omarchy-webapp-install Hacker News https://news.ycombinator.com https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/hacker-news.png
+omarchy-webapp-install "Hacker News" https://news.ycombinator.com https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/hacker-news.png
 ```
