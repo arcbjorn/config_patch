@@ -26,6 +26,10 @@ omarchy-webapp-install "Google Drive" https://drive.google.com/drive https://cdn
 ```
 
 ```
+omarchy-webapp-install "Gmail" https://mail.google.com/mail/u/2 https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/gmail.png
+```
+
+```
 omarchy-webapp-install Gemini https://gemini.google.com/ https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/google-gemini.png
 ```
 
