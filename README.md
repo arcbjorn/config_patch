@@ -9,7 +9,7 @@ Just cherry-pick custom settings to `./config`.
 #### Remove
 
 ```
-omarchy-webapp-install "Basecamp" "Figma" "Google Contacts" "Google Messages" "Google Photos" "Hey"
+omarchy-webapp-remove "Basecamp" "Figma" "Google Contacts" "Google Messages" "Google Photos" "Hey"
 ```
 
 #### Install
