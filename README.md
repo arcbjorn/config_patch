@@ -1,49 +1,43 @@
 # Omarchy config
 
 ## Merge with fresh install
-```bash
-git init
-git add .
-git commit -m "fresh install base"
-git remote add origin <your-custom-config-repo>
-git fetch origin master
-git merge origin/master --allow-unrelated-histories
-```
 
-## Additional Web apps:
+Just cherry-pick custom settings to `./config`.
+
+## Web apps:
+
+#### Remove
 
 ```
-Google Calendar
-https://calendar.google.com/calendar
-https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/google-calendar.png
+omarchy-webapp-install "Basecamp" "Figma" "Google Contacts" "Google Messages" "Google Photos" "Hey"
 ```
 
+#### Install
 ```
-Google Drive
-https://drive.google.com/drive
-https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/google-drive.png
+omarchy-webapp-install "App Name" "https://url.com" "https://icon.png"
 ```
 
 ```
-Gemini
-https://gemini.google.com/
-https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/google-gemini.png
+omarchy-webapp-install "Google Calendar" https://calendar.google.com/calendar https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/google-calendar.png
 ```
 
 ```
-Grok
-https://grok.com
+omarchy-webapp-install "Google Drive" https://drive.google.com/drive https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/google-drive.png
+```
+
+```
+omarchy-webapp-install Gemini https://gemini.google.com/ https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/google-gemini.png
+```
+
+```
+omarchy-webapp-install Grok https://grok.com
 https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/grok-dark.png
 ```
 
 ```
-Claude
-https://claude.ai
-https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/claude-ai.png
+omarchy-webapp-install Claude https://claude.ai https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/claude-ai.png
 ```
 
 ```
-Hacker News
-https://news.ycombinator.com
-https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/hacker-news.png
+omarchy-webapp-install Hacker News https://news.ycombinator.com https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/hacker-news.png
 ```
