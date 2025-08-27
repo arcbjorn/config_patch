@@ -1,10 +1,18 @@
 {
+  "modules-center": ["custom/github"],
   "modules-right": [
     "hyprland/language"
   ],
+  "custom/github": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "/home/arc/.config/waybar/github-contrib-tooltip.sh",
+    "on-click": "omarchy-launch-webapp \"https://github.com/\"",
+    "interval": 3600
+  },
   "hyprland/language": {
     "format": "{}",
-    "format-en": "us",
+    "format-en": "us", 
     "format-ru": "ru",
     "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
   }
