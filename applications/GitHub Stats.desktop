@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=GitHub Stats
+Comment=GitHub Stats
+Exec=/usr/bin/alacritty --class GitHubStats -e /home/arc/tools/bin/github-stats
+TryExec=/home/arc/tools/bin/github-stats
+Terminal=false
+Type=Application
+Icon=/home/arc/.local/share/applications/icons/GitHub Stats.png
+StartupNotify=true
