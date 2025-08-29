@@ -1,0 +1,35 @@
+# Resolve absolute paths for terminal and the app command
+ALACRITTY_ABS="$(command -v alacritty || echo alacritty)"
+
+# Source shell config to get user's full PATH
+if [[ -f ~/.bashrc ]]; then
+  source ~/.bashrc
+elif [[ -f ~/.zshrc ]]; then
+  source ~/.zshrc
+fi
+
+CMD_FIRST="${APP_EXEC%% *}"
+if RESOLVED_CMD="$(command -v "$CMD_FIRST" 2>/dev/null)"; then
+  APP_EXEC="${APP_EXEC/#$CMD_FIRST/$RESOLVED_CMD}"
+  TRYEXEC_LINE="TryExec=$RESOLVED_CMD"
+else
+  # Only show warning in interactive mode (when no parameters provided)
+  if [ "$#" -eq 0 ]; then
+    echo -e "\e[31mError: Command '$CMD_FIRST' not found in PATH.\e[0m"
+    echo "The TUI will not launch properly from GUI launchers."
+    echo ""
+    echo "To fix this:"
+    echo "1. Make sure the command is installed and executable"
+    echo "2. Add it to your PATH in ~/.bashrc or ~/.zshrc"
+    echo "3. Learn more: https://wiki.archlinux.org/title/Environment_variables"
+    echo ""
+    echo "Installation cancelled."
+    exit 1
+  fi
+  TRYEXEC_LINE=""
+fi
+
+# Changes to existing lines:
+# Line 66: return 1 → exit 1
+# Line 74: Exec=alacritty → Exec=${ALACRITTY_ABS}
+# Line 75: Add ${TRYEXEC_LINE}
