@@ -5,206 +5,207 @@
 get_vim_keybindings() {
 cat << 'EOF'
 # File Operations
-<leader>ff → Find Files
-<leader>fr → Recent Files
-<leader>fs → Save File
-:w → Save File
-:wa → Save All Files
-:q → Quit
-:qa → Quit All
-:wq → Save and Quit
-:x → Save and Quit
-ZZ → Save and Quit
-ZQ → Quit Without Saving
+<leader>ff → Find Files (f=file, f=find)
+<leader>fr → Recent Files (f=file, r=recent)
+<leader>fs → Save File (f=file, s=save)
+:w → Save File (w=write)
+:wa → Save All Files (w=write, a=all)
+:q → Quit (q=quit)
+:qa → Quit All (q=quit, a=all)
+:wq → Save and Quit (w=write, q=quit)
+:x → Save and Quit (x=exit)
+ZZ → Save and Quit (Z=save & exit)
+ZQ → Quit Without Saving (Z=exit, Q=force)
 
 # Copy/Paste/Delete Entire File
-ggVG → Select Entire File (then y to copy)
-:%y → Yank (Copy) Entire File
-:%y+ → Copy Entire File to System Clipboard
-ggVGy → Select All and Copy
-ggdG → Delete Entire File Content
-:%d → Delete All Lines
-ggVGd → Select All and Delete
+ggVG → Select Entire File (g=go, g=top, V=visual line, G=end)
+:%y → Yank Entire File (% = whole file, y=yank)
+:%y+ → Copy Entire File to System Clipboard (+clipboard)
+ggVGy → Select All and Copy (go top, visual, go end, yank)
+ggdG → Delete Entire File Content (go top, delete to end)
+:%d → Delete All Lines (% = whole file, d=delete)
+ggVGd → Select All and Delete (go top, visual, go end, delete)
 
 # Copy/Paste Operations
-yy → Copy Current Line
-y$ → Copy to End of Line
-y^ → Copy to Beginning of Line
-yw → Copy Word
-yaw → Copy Word (including spaces)
-yiw → Copy Inner Word
-y} → Copy to Next Paragraph
-y{ → Copy to Previous Paragraph
-yf<char> → Copy to Character
-yt<char> → Copy Until Character
-"+yy → Copy Line to System Clipboard
-"+y → Copy Selection to System Clipboard
-"*y → Copy to Primary Selection
-p → Paste After Cursor
-P → Paste Before Cursor
-"+p → Paste from System Clipboard
-"*p → Paste from Primary Selection
-:put → Paste Below Current Line
-:put! → Paste Above Current Line
+yy → Copy Current Line (y=yank, y=line)
+y$ → Copy to End of Line (y=yank, $=end)
+y^ → Copy to Beginning of Line (y=yank, ^=start)
+yw → Copy Word (y=yank, w=word)
+yaw → Copy Word with spaces (y=yank, a=around, w=word)
+yiw → Copy Inner Word (y=yank, i=inside, w=word)
+y} → Copy to Next Paragraph (y=yank, }=paragraph end)
+y{ → Copy to Previous Paragraph (y=yank, {=paragraph start)
+yf<char> → Copy to Character (y=yank, f=find)
+yt<char> → Copy Until Character (y=yank, t=until)
+"+yy → Copy Line to System Clipboard (+clipboard)
+"+y → Copy Selection to System Clipboard (+clipboard)
+"*y → Copy to Primary Selection (*selection)
+p → Paste After Cursor (p=paste)
+P → Paste Before Cursor (P=paste before)
+"+p → Paste from System Clipboard (+clipboard)
+"*p → Paste from Primary Selection (*selection)
+:put → Paste Below Current Line (put=paste)
+:put! → Paste Above Current Line (put!=paste above)
 
 # Visual Selection & Copy
-v → Visual Character Mode
-V → Visual Line Mode
-<C-v> → Visual Block Mode
-gv → Re-select Last Visual Selection
-o → Toggle Visual Selection End
-vaw → Select Word
-viw → Select Inner Word
-vas → Select Sentence
-vis → Select Inner Sentence
-vap → Select Paragraph
-vip → Select Inner Paragraph
-vi" → Select Inside Quotes
-va" → Select Around Quotes
-vi( → Select Inside Parentheses
-va( → Select Around Parentheses
-vi{ → Select Inside Braces
-va{ → Select Around Braces
-vi[ → Select Inside Brackets
-va[ → Select Around Brackets
-vit → Select Inside XML/HTML Tag
-vat → Select Around XML/HTML Tag
+v → Visual Character Mode (v=visual)
+V → Visual Line Mode (V=visual line)
+<C-v> → Visual Block Mode (Ctrl+v=visual block)
+gv → Re-select Last Visual Selection (g=go, v=visual)
+o → Toggle Visual Selection End (o=other end)
+vaw → Select Word (v=visual, a=around, w=word)
+viw → Select Inner Word (v=visual, i=inside, w=word)
+vas → Select Sentence (v=visual, a=around, s=sentence)
+vis → Select Inner Sentence (v=visual, i=inside, s=sentence)
+vap → Select Paragraph (v=visual, a=around, p=paragraph)
+vip → Select Inner Paragraph (v=visual, i=inside, p=paragraph)
+vi" → Select Inside Quotes (v=visual, i=inside, "=quotes)
+va" → Select Around Quotes (v=visual, a=around, "=quotes)
+vi( → Select Inside Parentheses (v=visual, i=inside, (=parens)
+va( → Select Around Parentheses (v=visual, a=around, (=parens)
+vi{ → Select Inside Braces (v=visual, i=inside, {=braces)
+va{ → Select Around Braces (v=visual, a=around, {=braces)
+vi[ → Select Inside Brackets (v=visual, i=inside, [=brackets)
+va[ → Select Around Brackets (v=visual, a=around, [=brackets)
+vit → Select Inside XML/HTML Tag (v=visual, i=inside, t=tag)
+vat → Select Around XML/HTML Tag (v=visual, a=around, t=tag)
 
 # Line Operations
-dd → Delete Line
-D → Delete to End of Line
-C → Change to End of Line
-cc → Change Entire Line
-S → Substitute Line
-o → Insert Line Below
-O → Insert Line Above
-J → Join Lines
-gJ → Join Lines Without Space
-<< → Unindent Line
->> → Indent Line
-= → Auto-indent
+dd → Delete Line (d=delete, d=line)
+D → Delete to End of Line (D=delete to end)
+C → Change to End of Line (C=change to end)
+cc → Change Entire Line (c=change, c=line)
+S → Substitute Line (S=substitute line)
+o → Insert Line Below (o=open below)
+O → Insert Line Above (O=open above)
+J → Join Lines (J=join)
+gJ → Join Lines Without Space (g=go, J=join no space)
+<< → Unindent Line (<<shift left)
+>> → Indent Line (>>shift right)
+= → Auto-indent (=format)
 
 # Word Operations
-dw → Delete Word
-diw → Delete Inner Word
-daw → Delete Word (including spaces)
-cw → Change Word
-ciw → Change Inner Word
-caw → Change Word (including spaces)
+dw → Delete Word (d=delete, w=word)
+diw → Delete Inner Word (d=delete, i=inside, w=word)
+daw → Delete Word with spaces (d=delete, a=around, w=word)
+cw → Change Word (c=change, w=word)
+ciw → Change Inner Word (c=change, i=inside, w=word)
+caw → Change Word with spaces (c=change, a=around, w=word)
 
 # Search & Replace
-/ → Search Forward
-? → Search Backward
-n → Next Search Result
-N → Previous Search Result
-* → Search Word Under Cursor (forward)
-# → Search Word Under Cursor (backward)
-:%s/old/new/g → Replace All in File
-:%s/old/new/gc → Replace All with Confirmation
-:s/old/new/g → Replace in Current Line
-:'<,'>s/old/new/g → Replace in Visual Selection
+/ → Search Forward (/=search down)
+? → Search Backward (?=search up)
+n → Next Search Result (n=next)
+N → Previous Search Result (N=previous)
+* → Search Word Under Cursor forward (*=word search)
+# → Search Word Under Cursor backward (#=word search back)
+:%s/old/new/g → Replace All in File (%=file, s=substitute, g=global)
+:%s/old/new/gc → Replace All with Confirmation (c=confirm)
+:s/old/new/g → Replace in Current Line (s=substitute)
+:'<,'>s/old/new/g → Replace in Visual Selection ('<,'>=selection)
 
 # Navigation
-gg → Go to First Line
-G → Go to Last Line
-:<num> → Go to Line Number
-H → Top of Screen
-M → Middle of Screen
-L → Bottom of Screen
-0 → Start of Line
-^ → First Non-blank Character
-$ → End of Line
-w → Next Word
-b → Previous Word
-e → End of Current Word
-{ → Previous Paragraph
-} → Next Paragraph
-( → Previous Sentence
-) → Next Sentence
-<C-f> → Page Down
-<C-b> → Page Up
-<C-d> → Half Page Down
-<C-u> → Half Page Up
-<C-o> → Jump Back
-<C-i> → Jump Forward
+gg → Go to First Line (g=go, g=top)
+G → Go to Last Line (G=go to end)
+:<num> → Go to Line Number (:=command)
+H → Top of Screen (H=high)
+M → Middle of Screen (M=middle)
+L → Bottom of Screen (L=low)
+0 → Start of Line (0=beginning)
+^ → First Non-blank Character (^=start)
+$ → End of Line ($=end)
+w → Next Word (w=word)
+b → Previous Word (b=back word)
+e → End of Current Word (e=end word)
+{ → Previous Paragraph ({=paragraph up)
+} → Next Paragraph (}=paragraph down)
+( → Previous Sentence ((=sentence up)
+) → Next Sentence ()=sentence down)
+<C-f> → Page Down (Ctrl+f=forward page)
+<C-b> → Page Up (Ctrl+b=back page)
+<C-d> → Half Page Down (Ctrl+d=down half)
+<C-u> → Half Page Up (Ctrl+u=up half)
+<C-o> → Jump Back (Ctrl+o=old position)
+<C-i> → Jump Forward (Ctrl+i=forward jump)
 
 # Marks & Bookmarks
-ma → Set Mark 'a'
-'a → Jump to Mark 'a'
-`` → Previous Position
-'. → Last Changed Position
-'" → Last Exit Position
-:marks → Show All Marks
+ma → Set Mark 'a' (m=mark)
+'a → Jump to Mark 'a' ('=goto mark)
+`` → Previous Position (`=backtick to last)
+'. → Last Changed Position (.=last change)
+'" → Last Exit Position ("=last exit)
+:marks → Show All Marks (:marks command)
 
 # Folding
-za → Toggle Fold
-zc → Close Fold
-zo → Open Fold
-zR → Open All Folds
-zM → Close All Folds
-zf → Create Fold
-zd → Delete Fold
+za → Toggle Fold (z=fold, a=toggle)
+zc → Close Fold (z=fold, c=close)
+zo → Open Fold (z=fold, o=open)
+zR → Open All Folds (z=fold, R=open all)
+zM → Close All Folds (z=fold, M=close all)
+zf → Create Fold (z=fold, f=create)
+zd → Delete Fold (z=fold, d=delete)
 
 # Windows & Tabs
-<C-w>s → Split Horizontal
-<C-w>v → Split Vertical
-<C-w>c → Close Window
-<C-w>o → Close Other Windows
-<C-w>h → Move to Left Window
-<C-w>j → Move to Lower Window
-<C-w>k → Move to Upper Window
-<C-w>l → Move to Right Window
-:tabnew → New Tab
-gt → Next Tab
-gT → Previous Tab
-:tabclose → Close Tab
+<C-w>s → Split Horizontal (Ctrl+w, s=split)
+<C-w>v → Split Vertical (Ctrl+w, v=vertical)
+<C-w>c → Close Window (Ctrl+w, c=close)
+<C-w>o → Close Other Windows (Ctrl+w, o=only)
+<C-w>h → Move to Left Window (Ctrl+w, h=left)
+<C-w>j → Move to Lower Window (Ctrl+w, j=down)
+<C-w>k → Move to Upper Window (Ctrl+w, k=up)
+<C-w>l → Move to Right Window (Ctrl+w, l=right)
+:tabnew → New Tab (tab=new)
+gt → Next Tab (g=go, t=tab)
+gT → Previous Tab (g=go, T=tab back)
+:tabclose → Close Tab (tab=close)
 
 # LSP & Code
-gd → Go to Definition
-gr → Go to References
-K → Show Documentation
-<leader>ca → Code Actions
-<leader>cr → Rename
-<leader>cf → Format Code
-]d → Next Diagnostic
-[d → Previous Diagnostic
+gd → Go to Definition (g=go, d=definition)
+gr → Go to References (g=go, r=references)
+K → Show Documentation (K=help)
+<leader>ca → Code Actions (c=code, a=action)
+<leader>cr → Rename (c=code, r=rename)
+<leader>cf → Format Code (c=code, f=format)
+]d → Next Diagnostic (]=next, d=diagnostic)
+[d → Previous Diagnostic ([=prev, d=diagnostic)
 
 # LazyVim Specific
-<leader><space> → Find Files
-<leader>sg → Live Grep
-<leader>bb → Switch Buffer
-<leader>bd → Delete Buffer
-<leader>gg → Lazygit
-<leader>ft → Terminal
-<leader>l → Lazy Plugin Manager
+<leader><space> → Find Files (leader=space, space=find)
+<leader>sg → Live Grep (s=search, g=grep)
+<leader>bb → Switch Buffer (b=buffer, b=switch)
+<leader>bd → Delete Buffer (b=buffer, d=delete)
+<leader>gg → Lazygit (g=git, g=lazygit)
+<leader>ft → Terminal (f=file, t=terminal)
+<leader>l → Lazy Plugin Manager (l=lazy)
 
 # Undo/Redo
-u → Undo
-<C-r> → Redo
-U → Undo Line Changes
+u → Undo (u=undo)
+<C-r> → Redo (Ctrl+r=redo)
+U → Undo Line Changes (U=undo line)
 
 # Insert Mode
-i → Insert Before Cursor
-a → Insert After Cursor
-I → Insert at Line Start
-A → Insert at Line End
-s → Substitute Character
-S → Substitute Line
-r → Replace Character
-R → Replace Mode (overwrite)
+i → Insert Before Cursor (i=insert)
+a → Insert After Cursor (a=append)
+I → Insert at Line Start (I=insert start)
+A → Insert at Line End (A=append end)
+s → Substitute Character (s=substitute)
+S → Substitute Line (S=substitute line)
+r → Replace Character (r=replace)
+R → Replace Mode (R=replace mode)
 
 # Macros
-q<letter> → Record Macro
-q → Stop Recording
-@<letter> → Play Macro
-@@ → Repeat Last Macro
+q<letter> → Record Macro (q=record)
+q → Stop Recording (q=stop)
+@<letter> → Play Macro (@=play)
+@@ → Repeat Last Macro (@@=repeat)
 
 # Registers
-"<letter>y → Yank to Register
-"<letter>p → Paste from Register
-:reg → Show All Registers
+"<letter>y → Yank to Register ("=register)
+"<letter>p → Paste from Register ("=register)
+:reg → Show All Registers (:reg command)
 EOF
 }
+
 
 # Parse and format keybindings similar to the original script
 parse_vim_bindings() {
@@ -217,6 +218,9 @@ parse_vim_bindings() {
         gsub(/^[ \t]+|[ \t]+$/, "", key)
         gsub(/^[ \t]+|[ \t]+$/, "", desc)
         
+        # Count angle brackets to adjust width
+        bracket_count = gsub(/</, "<", key) + gsub(/>/, ">", key)
+        
         # Escape XML entities for walker
         gsub(/&/, "\\&amp;", key);
         gsub(/</, "\\&lt;", key);
@@ -225,7 +229,9 @@ parse_vim_bindings() {
         gsub(/</, "\\&lt;", desc);
         gsub(/>/, "\\&gt;", desc);
         
-        printf "%-35s → %s\n", key, desc
+        # Adjust width based on escaped characters (each < or > becomes &lt; or &gt; = 3 extra chars)
+        width = 20 + (bracket_count * 3)
+        printf "%-*s → %s\n", width, key, desc
     }
 }'
 }
