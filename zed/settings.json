@@ -30,6 +30,7 @@
   "theme": {
     "mode": "dark",
     "light": "Gruvbox Light",
-    "dark": "Base16 Darktooth"
+    "dark": "Base16 Darktooth",
+    "scroll_sensitivity": 4
   }
 }
