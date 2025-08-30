@@ -1,0 +1,234 @@
+#!/bin/bash
+
+# A comprehensive LazyVim keybindings reference for practical daily use
+
+get_vim_keybindings() {
+cat << 'EOF'
+# File Operations
+<leader>ff → Find Files
+<leader>fr → Recent Files
+<leader>fs → Save File
+:w → Save File
+:wa → Save All Files
+:q → Quit
+:qa → Quit All
+:wq → Save and Quit
+:x → Save and Quit
+ZZ → Save and Quit
+ZQ → Quit Without Saving
+
+# Copy/Paste/Delete Entire File
+ggVG → Select Entire File (then y to copy)
+:%y → Yank (Copy) Entire File
+:%y+ → Copy Entire File to System Clipboard
+ggVGy → Select All and Copy
+ggdG → Delete Entire File Content
+:%d → Delete All Lines
+ggVGd → Select All and Delete
+
+# Copy/Paste Operations
+yy → Copy Current Line
+y$ → Copy to End of Line
+y^ → Copy to Beginning of Line
+yw → Copy Word
+yaw → Copy Word (including spaces)
+yiw → Copy Inner Word
+y} → Copy to Next Paragraph
+y{ → Copy to Previous Paragraph
+yf<char> → Copy to Character
+yt<char> → Copy Until Character
+"+yy → Copy Line to System Clipboard
+"+y → Copy Selection to System Clipboard
+"*y → Copy to Primary Selection
+p → Paste After Cursor
+P → Paste Before Cursor
+"+p → Paste from System Clipboard
+"*p → Paste from Primary Selection
+:put → Paste Below Current Line
+:put! → Paste Above Current Line
+
+# Visual Selection & Copy
+v → Visual Character Mode
+V → Visual Line Mode
+<C-v> → Visual Block Mode
+gv → Re-select Last Visual Selection
+o → Toggle Visual Selection End
+vaw → Select Word
+viw → Select Inner Word
+vas → Select Sentence
+vis → Select Inner Sentence
+vap → Select Paragraph
+vip → Select Inner Paragraph
+vi" → Select Inside Quotes
+va" → Select Around Quotes
+vi( → Select Inside Parentheses
+va( → Select Around Parentheses
+vi{ → Select Inside Braces
+va{ → Select Around Braces
+vi[ → Select Inside Brackets
+va[ → Select Around Brackets
+vit → Select Inside XML/HTML Tag
+vat → Select Around XML/HTML Tag
+
+# Line Operations
+dd → Delete Line
+D → Delete to End of Line
+C → Change to End of Line
+cc → Change Entire Line
+S → Substitute Line
+o → Insert Line Below
+O → Insert Line Above
+J → Join Lines
+gJ → Join Lines Without Space
+<< → Unindent Line
+>> → Indent Line
+= → Auto-indent
+
+# Word Operations
+dw → Delete Word
+diw → Delete Inner Word
+daw → Delete Word (including spaces)
+cw → Change Word
+ciw → Change Inner Word
+caw → Change Word (including spaces)
+
+# Search & Replace
+/ → Search Forward
+? → Search Backward
+n → Next Search Result
+N → Previous Search Result
+* → Search Word Under Cursor (forward)
+# → Search Word Under Cursor (backward)
+:%s/old/new/g → Replace All in File
+:%s/old/new/gc → Replace All with Confirmation
+:s/old/new/g → Replace in Current Line
+:'<,'>s/old/new/g → Replace in Visual Selection
+
+# Navigation
+gg → Go to First Line
+G → Go to Last Line
+:<num> → Go to Line Number
+H → Top of Screen
+M → Middle of Screen
+L → Bottom of Screen
+0 → Start of Line
+^ → First Non-blank Character
+$ → End of Line
+w → Next Word
+b → Previous Word
+e → End of Current Word
+{ → Previous Paragraph
+} → Next Paragraph
+( → Previous Sentence
+) → Next Sentence
+<C-f> → Page Down
+<C-b> → Page Up
+<C-d> → Half Page Down
+<C-u> → Half Page Up
+<C-o> → Jump Back
+<C-i> → Jump Forward
+
+# Marks & Bookmarks
+ma → Set Mark 'a'
+'a → Jump to Mark 'a'
+`` → Previous Position
+'. → Last Changed Position
+'" → Last Exit Position
+:marks → Show All Marks
+
+# Folding
+za → Toggle Fold
+zc → Close Fold
+zo → Open Fold
+zR → Open All Folds
+zM → Close All Folds
+zf → Create Fold
+zd → Delete Fold
+
+# Windows & Tabs
+<C-w>s → Split Horizontal
+<C-w>v → Split Vertical
+<C-w>c → Close Window
+<C-w>o → Close Other Windows
+<C-w>h → Move to Left Window
+<C-w>j → Move to Lower Window
+<C-w>k → Move to Upper Window
+<C-w>l → Move to Right Window
+:tabnew → New Tab
+gt → Next Tab
+gT → Previous Tab
+:tabclose → Close Tab
+
+# LSP & Code
+gd → Go to Definition
+gr → Go to References
+K → Show Documentation
+<leader>ca → Code Actions
+<leader>cr → Rename
+<leader>cf → Format Code
+]d → Next Diagnostic
+[d → Previous Diagnostic
+
+# LazyVim Specific
+<leader><space> → Find Files
+<leader>sg → Live Grep
+<leader>bb → Switch Buffer
+<leader>bd → Delete Buffer
+<leader>gg → Lazygit
+<leader>ft → Terminal
+<leader>l → Lazy Plugin Manager
+
+# Undo/Redo
+u → Undo
+<C-r> → Redo
+U → Undo Line Changes
+
+# Insert Mode
+i → Insert Before Cursor
+a → Insert After Cursor
+I → Insert at Line Start
+A → Insert at Line End
+s → Substitute Character
+S → Substitute Line
+r → Replace Character
+R → Replace Mode (overwrite)
+
+# Macros
+q<letter> → Record Macro
+q → Stop Recording
+@<letter> → Play Macro
+@@ → Repeat Last Macro
+
+# Registers
+"<letter>y → Yank to Register
+"<letter>p → Paste from Register
+:reg → Show All Registers
+EOF
+}
+
+# Parse and format keybindings similar to the original script
+parse_vim_bindings() {
+  awk -F' → ' '
+{
+    if (NF >= 2) {
+        key = $1
+        desc = $2
+        
+        gsub(/^[ \t]+|[ \t]+$/, "", key)
+        gsub(/^[ \t]+|[ \t]+$/, "", desc)
+        
+        # Escape XML entities for walker
+        gsub(/&/, "\\&amp;", key);
+        gsub(/</, "\\&lt;", key);
+        gsub(/>/, "\\&gt;", key);
+        gsub(/&/, "\\&amp;", desc);
+        gsub(/</, "\\&lt;", desc);
+        gsub(/>/, "\\&gt;", desc);
+        
+        printf "%-35s → %s\n", key, desc
+    }
+}'
+}
+
+# Main execution
+get_vim_keybindings | grep -v '^#' | grep -v '^$' | parse_vim_bindings | walker --dmenu --theme keybindings -p 'Vim Keybindings'
