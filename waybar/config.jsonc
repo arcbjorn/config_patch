@@ -15,6 +15,10 @@
     "format-en": "us", 
     "format-ru": "ru",
     "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
+  },
+  "battery": {
+    "format-discharging": "{capacity}% {icon}",
+    "format-charging": "{capacity}% {icon}"
   }
 
   // DELETED: Tray and expander modules removed due to fcitx5 tray icon issues
