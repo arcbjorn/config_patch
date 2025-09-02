@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Roadmap.sh
+Comment=Roadmap.sh
+Exec=omarchy-launch-webapp https://roadmap.sh
+Terminal=false
+Type=Application
+Icon=/home/arc/.local/share/applications/icons/Roadmap.sh.png
+StartupNotify=true
