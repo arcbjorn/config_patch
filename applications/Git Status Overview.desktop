@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Git Status Overview
+Comment=Git Status Overview
+Exec=/usr/bin/alacritty --class GitStatusOverview -e /home/arc/tools/scripts/git-status-overview
+TryExec=/home/arc/tools/scripts/git-status-overview
+Terminal=false
+Type=Application
+Icon=/home/arc/.local/share/applications/icons/Git Status Overview.png
+StartupNotify=true
