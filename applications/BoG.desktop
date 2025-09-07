@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Name=BoG
+Exec=omarchy-launch-webapp https://ibank.bog.ge/
+Terminal=false
+Type=Application
+Icon=/home/arc/.local/share/applications/icons/BoG.png
+StartupNotify=true
