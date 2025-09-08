@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=University of London
+Comment=University of London Portal
+Exec=omarchy-launch-webapp https://my.london.ac.uk/
+Terminal=false
+Type=Application
+Icon=/home/arc/.local/share/applications/icons/University of London.png
+StartupNotify=true
