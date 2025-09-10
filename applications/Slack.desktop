@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Slack
+Comment=Slack
+Exec=omarchy-launch-webapp https://slack.com/signin
+Terminal=false
+Type=Application
+Icon=/home/arc/.local/share/applications/icons/Slack.png
+StartupNotify=true
